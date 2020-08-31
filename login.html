@@ -38,27 +38,28 @@
 </head>
 
 <body class="text-center d-flex justify-content-center">
-  <div id="logo">
-  </div>
-  <form>
-    <img src="img\login.png" alt="eMercado" width="500" height="200">
-    <h1>Iniciar cuenta</h1>
+  <img src="img\login.png" alt="eMercado" width="500" height="200">
+  <form class= "login_form">
+    <div class="avatar">
+      <img src=img\avatar.png alt="Avatar" height="70">
+    </div>
+    <h1>Inicio de sesión</h1>
     <div class="form-group">
       <label for="exampleInputEmail1">Dirección de correo electrónico</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electrónico" onblur="validar_email(this.value)">
-      <label id="emailHelp" class="form-text text-muted" style="display: none;">Debe ingresar su usuario.</label>
+      <label id="emailHelp" class="form-text text-muted checked" style="display: none;">Debe ingresar su usuario.</label>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Contraseña</label>
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" onblur="validar_password(this.value)">
-      <label id="passHelp" class="form-text text-muted" style="display: none;">Debe ingresar su contraseña.</label>
+      <label id="passHelp" class="form-text text-muted checked" style="display: none;">Debe ingresar su contraseña.</label>
     </div>
     <div class="form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Mantener la cuenta iniciada</label>
     </div>
     <br>
-    <button type="button" onclick="navegar()" class="btn btn-primary btn-lg btn-block">Enviar</button>
+    <button type="button" onclick="navegar()" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
   </form>
 
   <script src="js/init.js"></script>

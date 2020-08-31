@@ -26,5 +26,6 @@ function navegar(){
     var password= document.getElementById("exampleInputPassword1").value;
     if((email != "")&&(password != "")){ 
         window.location.assign('index.html');
-    }
+    } 
+    var datos = sessionStorage.setItem("usuario", email);
 }
