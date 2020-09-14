@@ -45,7 +45,8 @@ function showProductsList(array){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action" onclick="desplegar(PRODUCTS_URL)">
+        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action">
             <div class="row" id="` + product.name + `">
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
