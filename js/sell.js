@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 else if (resultObj.status === 'error')
                 {
                     msgToShow = ERROR_MSG;
-                    document.getElementById("alertResult").classList.add('alert-danger');
+                    document.getElementById("alert").classList.add('alert-danger');
                 }
     
                 msgToShowHTML.innerHTML = msgToShow;

@@ -14,6 +14,36 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
+<style>
+  .carousel-inner {
+    position: relative;
+    width: 30%;
+    overflow: hidden;
+}
+
+.carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: rgb(24, 22, 22);
+    text-align: center;
+    opacity: .5;
+    transition: opacity 0s ease;
+    transition-duration: 0s
+}
+
+.p-4 {
+    padding: 0rem!important;
+}
+</style>
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
@@ -26,15 +56,85 @@
       <div class="py-2 d-none d-md-inline-block" id="datos"></div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+      </div>
+    <div class="container mt-5">
+        <h3 id="productName"></h3>
+        <hr class="my-3">
+      <dl>
+        <dt>Galería</dt>
+        <div class="container">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/prod1.jpg" class="d-block w-100" alt="ProductCar" width="30%">
+              </div>
+              <div class="carousel-item">
+                <img src="img/prod1_1.jpg" class="d-block w-100" alt="ProductCar1" width="30%">
+              </div>
+              <div class="carousel-item">
+                <img src="img/prod1_2.jpg" class="d-block w-100" alt="ProductCar2" width="30%">
+              </div>
+              <div class="carousel-item">
+                <img src="img/prod1_3.jpg" class="d-block w-100" alt="ProductCar3" width="30%">
+              </div>
+              <div class="carousel-item">
+                <img src="img/prod1_4.jpg" class="d-block w-100" alt="ProductCar4" width="30%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Costo</dt>
+        <dd>
+          <p id="productCost"></p>
+        </dd>
+
+        <dt>Cantidad de productos</dt>
+        <dd>
+          <p id="productSoldCount"></p>
+        </dd>
+
+        <dt>Categoría</dt>
+        <dd>
+          <p id="productCategory"></p>
+        </dd>
+        
+        <dt>Comentarios</dt>
+        <dd>
+          <div class="row">
+            <div class="list-group" id="cat-list-container">
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <form>
+        <div class="row">
+          <div class="col-md-12 mb-3">
+              <label for="productDescription">Tu comentario:</label>
+              <textarea class="form-control" id="productDescription" rows="3"></textarea>
+          </div>
+        </div>
+          <span class="heading">User Rating</span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        <button  href="#" class="btn btn-primary btn-lg" type="submit">Añadir comentario</button>
+      </form>
     </div>
-  </div>
-  <footer class="text-muted">
+  </main>
+  <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
@@ -43,6 +143,12 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+  <div class="alert fade" role="alert" id="alertResult">
+    <span id="Span"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
