@@ -1,5 +1,6 @@
 const ORDER_ASC_BY_NAME = "AZ";
 var currentCommentsArray = [];
+var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
@@ -33,6 +34,48 @@ function showCommentsProduct(){
     }
 }
 
+function showRelatedProducts(array){
+    let htmlContentToAppend = "";
+    for(let i = 3; i < currentProductsArray.length; i++){
+        let product = currentProductsArray[1];
+
+        htmlContentToAppend += `
+        <a href="product-info.html" class="list-group-item list-group-item-action">
+            <div class="row" id="` + product.name + `">
+                <div class="col-3">
+                    <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ product.name +`</h4>
+                    </div>
+                    <div> Costo: $USD ` + product.cost +`</div>
+                </div>
+            </div>
+        `
+        }
+        for(let i = 3; i < currentProductsArray.length; i++){
+            let product = currentProductsArray[3];
+    
+            htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row" id="` + product.name + `">
+                    <div class="col-3">
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ product.name +`</h4>
+                        </div>
+                        <div> Costo: $USD ` + product.cost +`</div>
+                    </div>
+                </div>
+            `
+            }
+
+        document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+}
+
 function sortAndShowCommentsProduct(sortCriteria, commentsArray){
     currentSortCriteria = sortCriteria;
 
@@ -44,6 +87,17 @@ function sortAndShowCommentsProduct(sortCriteria, commentsArray){
     showCommentsProduct();
 }
 
+function sortAndShowProducts(sortCriteria, productsArray){
+    currentSortCriteria = sortCriteria;
+
+    if(productsArray != undefined){
+        currentProductsArray = productsArray;
+    }
+
+    //Muestro las categorías ordenadas
+    showRelatedProducts();
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -51,6 +105,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             sortAndShowCommentsProduct(ORDER_ASC_BY_NAME, resultObj.data);
+        }
+    });
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
 
