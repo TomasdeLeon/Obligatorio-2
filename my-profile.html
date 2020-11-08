@@ -27,6 +27,7 @@
         font-size: 3.5rem;
       }
     }
+
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -51,14 +52,63 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main" class="pb-5">
+    <div class="text-center p-4">
+      <h2>Mi perfil</h2>
+      <p class="lead">Verás aquí tus datos personales.</p>
     </div>
-  </div>
+    <div class="row">
+    <div class="container">
+      <div class="col-md-8 order-md-2">
+        <form class="needs-validation" id="sell-info">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="nombres">Nombres</label>
+              <input type="text" class="form-control" id="nombres"  value="">
+              <div class="invalid-feedback">
+              Por favor debe ingresar su nombre.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" class="form-control" id="apellidos" value="">
+              <div class="invalid-feedback">
+                Por favor debe ingresar su apellido.
+              </div>
+            </div>
+          </div><br>
+
+          <div class="mb-3">
+            <label for="edad">Edad</label>
+            <input type="number" class="form-control" id="edad" min="0" max="100" value="">
+            <div class="invalid-feedback">
+              Por favor ingrese su edad.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="e-mail">Email</label>
+            <input type="email" class="form-control" id="e-mail" value="">
+            <div class="invalid-feedback">
+              Por favor ingrese una cuenta email.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="telefono">Teléfono móvil</label>
+            <input type="tel" class="form-control" id="telefono" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" value="">
+            <div class="invalid-feedback">
+              Por favor ingrese un numero de teléfono.
+            </div>
+          </div>
+          <br class="mb-4">
+          <button class="btn btn-primary btn-lg" type="submit" data-target="#mensaje" onclick="guardarDatos()">Guardar Datos</button>
+          <button class="btn btn-primary btn-lg" type="submit" onclick="eliminarDatos()">Eliminar Datos</button>
+        </form>
+      </div>
+    </div>
+    </div>
+  </main>
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

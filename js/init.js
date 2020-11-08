@@ -44,6 +44,15 @@ var getJSONData = function(url){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+miStorage = window.localStorage;
 document.addEventListener("DOMContentLoaded", function(e){
-  document.getElementById("datos").innerHTML = sessionStorage.getItem("usuario");
+
+  Datos = JSON.parse(miStorage.getItem("frm"))
+
+  document.getElementById("nombres").value = Datos.name;
+  document.getElementById("apellidos").value = Datos.surname;
+  document.getElementById("edad").value = Datos.age;
+  document.getElementById("e-mail").value = Datos.email;
+  document.getElementById("telefono").value = Datos.telephone;
+
 });
